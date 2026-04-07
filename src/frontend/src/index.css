@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* EliteRead Dark Theme — charcoal/black with gold accents */
+    --background: 0.1 0 0;
+    --foreground: 0.92 0.005 60;
+    --card: 0.13 0 0;
+    --card-foreground: 0.92 0.005 60;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.92 0.005 60;
+    --primary: 0.72 0.1 75;
+    --primary-foreground: 0.1 0 0;
+    --secondary: 0.16 0 0;
+    --secondary-foreground: 0.72 0.05 60;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.55 0.01 60;
+    --accent: 0.2 0.01 60;
+    --accent-foreground: 0.72 0.1 75;
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.22 0.005 60;
+    --input: 0.18 0.005 60;
+    --ring: 0.72 0.1 75;
+
+    --chart-1: 0.72 0.1 75;
+    --chart-2: 0.6 0.15 200;
+    --chart-3: 0.65 0.18 145;
+    --chart-4: 0.55 0.18 300;
+    --chart-5: 0.6 0.15 30;
+
+    --sidebar: 0.13 0 0;
+    --sidebar-foreground: 0.92 0.005 60;
+    --sidebar-primary: 0.72 0.1 75;
+    --sidebar-primary-foreground: 0.1 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.92 0.005 60;
+    --sidebar-border: 0.22 0.005 60;
+    --sidebar-ring: 0.72 0.1 75;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #0f0f10;
+    color: #eaeaea;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Gold scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #343434;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c8a24a;
+}
+
+/* Gold gradient button */
+.btn-gold {
+  background: linear-gradient(135deg, #c8a24a 0%, #d9b75a 50%, #c8a24a 100%);
+  color: #151515;
+  font-weight: 700;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+.btn-gold:hover:not(:disabled) {
+  opacity: 0.92;
+  box-shadow: 0 0 16px rgba(200, 162, 74, 0.35);
+}
+.btn-gold:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Gold progress bar */
+.progress-gold [data-slot="progress-indicator"] {
+  background: linear-gradient(90deg, #c8a24a, #d9b75a);
+}
+
+/* Select dropdown dark theming */
+[data-radix-select-content] {
+  background-color: #1a1a1a !important;
+  border-color: #343434 !important;
+}
+[data-radix-select-item]:focus {
+  background-color: #242424 !important;
+}
+
+/* Tabs active state */
+[data-state="active"][role="tab"] {
+  background-color: #242424 !important;
+  color: #c8a24a !important;
+  border-bottom: 2px solid #c8a24a !important;
+}
+
+/* Input focus ring gold */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 1px #c8a24a !important;
+  border-color: #c8a24a !important;
+}
+
+/* Autocomplete dropdown */
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #1a1a1a;
+  border: 1px solid #343434;
+  border-radius: 6px;
+  margin-top: 4px;
+  max-height: 240px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.autocomplete-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #eaeaea;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+.autocomplete-item:hover,
+.autocomplete-item.active {
+  background-color: #242424;
+  color: #c8a24a;
+}
